@@ -1,3 +1,5 @@
+<?php
+?>
 <div id="sInput">
 <form name="newEntry" action="">
   <fieldset>
