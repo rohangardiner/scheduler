@@ -1,0 +1,23 @@
+body {
+  background-color: #243657;
+}
+
+#sInput {
+  border: 1px solid #eeeeee;
+  margin: 2px;
+  padding: 2px;
+}
+
+#sTasks {
+  border: 1px solid #eeeeee;
+  margin: 2px;
+  padding: 2px;
+  color: white;
+}
+
+#sDisplay {
+  border: 1px solid #eeeeee;
+  margin: 2px;
+  padding: 2px;
+  height: 300px;
+}
