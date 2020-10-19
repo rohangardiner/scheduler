@@ -9,10 +9,30 @@ body {
 }
 
 #sTasks {
-  border: 1px solid #eeeeee;
-  margin: 2px;
-  padding: 2px;
-  color: white;
+  margin: 2px 0;
+  padding: 4px;
+  position:relative;
+}
+
+.taskInstructions {
+  color: #eeefff;
+  font-style: italic;
+  position:absolute;
+  bottom:0;
+  right: 4px;
+}
+
+.taskItem {
+  display: inline;
+  border: 1px solid grey;
+  background: #eeefff;
+  color: black;
+  padding: 5px;
+  margin: 2px 0;
+}
+
+.taskItem:hover {
+  background: #ffffff;
 }
 
 #sDisplay {
@@ -20,4 +40,38 @@ body {
   margin: 2px;
   padding: 2px;
   height: 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+.box {
+  background-color: #20262e;
+  color: #fff;
+  border-radius: 3px;
+  padding: 20px;
+  font-size: 14px;
+  }
+
+.item-a {
+  grid-area: header;
+}
+.item-b {
+  grid-area: main;
+}
+.item-c {
+  grid-area: sidebar;
+}
+.item-d {
+  grid-area: footer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
 }
