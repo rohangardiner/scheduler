@@ -1,5 +1,3 @@
-<?php
-?>
 <div id="sInput">
 <form name="newEntry" action="">
   <fieldset>
@@ -18,9 +16,26 @@
 </div>
 
 <div id="sTasks">
-[A 15 6 7 x] [B 1 5 7 x] [C 2.5 2 7 x]
+  <button class="taskItem" onclick="remove(this)">A 15 6 7 x</button>
+  <button class="taskItem" onclick="remove(this)">B 1 5 7 x</button>
+  <button class="taskItem" onclick="remove(this)">C 2.5 2 7 x</button>
+  <button class="taskItem" onclick="remove(this)">A 15 6 7 x</button>
+  <button class="taskItem" onclick="remove(this)">B 1 5 7 x</button>
+  <button class="taskItem" onclick="remove(this)">C 2.5 2 7 x</button>
+  <button class="taskItem" onclick="remove(this)">A 15 6 7 x</button>
+  <button class="taskItem" onclick="remove(this)">B 1 5 7 x</button>
+  <button class="taskItem" onclick="remove(this)">C 2.5 2 7 x</button>
+  <button class="taskItem" onclick="remove(this)">A 15 6 7 x</button>
+  <button class="taskItem" onclick="remove(this)">B 1 5 7 x</button>
+  <button class="taskItem" onclick="remove(this)">C 2.5 2 7 x</button>
+  <div class="taskInstructions">Click tasks to remove</div>
 </div>
 
 <div id="sDisplay">
-Grid here
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+  <div class="box d">D</div>
+  <div class="box e">E</div>
+  <div class="box f">F</div>
 </div>
