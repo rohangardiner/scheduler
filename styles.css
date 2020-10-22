@@ -39,6 +39,34 @@ body {
   border: 1px solid #eeeeee;
   margin: 2px;
   padding: 2px;
-  height: 300px;
   overflow-wrap: break-word;
+}
+
+#sDisplay:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#times {
+  float: left;
+  margin: 2px 2px 0 0;
+  width: 11%;
+}
+
+#schedule {
+  float: left;
+  /*border: 1px solid #eeeeee;*/
+  margin: 2px;
+  width: 84%;
+}
+
+.slot {
+  height: 25px;
+  text-align: left;
+}
+
+.marker {
+  height: 25px;
+  text-align: right;
 }
