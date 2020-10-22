@@ -1,12 +1,11 @@
 let taskList = [
-    ['1', 'Go to space', '1', '', ''],
-    ['2', 'Walk dog', '1', '6am', '8am'],
-    ['3', 'Eat icecream', '2', '', '5.30pm'],
-    ['4', 'Install flux capacitor', '2.5', '', 'midnight'],
-    ['5', 'File taxes','0.75', '', 'midnight'],
-    ['6', 'Sleep', '8', '10pm', '']
+    ['0', 'Go to space', '1', '', ''],
+    ['1', 'Walk dog', '1', '6am', '8am'],
+    ['2', 'Eat icecream', '2', '', '5.30pm'],
+    ['3', 'Install flux capacitor', '2.5', '', 'midnight'],
+    ['4', 'File taxes','0.75', '', 'midnight'],
+    ['5', 'Sleep', '8', '10pm', '']
   ];
-  console.log("initial: " + taskList.length);
 populateTasks(taskList);
 window.setInterval(function(){
 	updateSchedule();
@@ -16,7 +15,7 @@ function populateTasks(tasks){
 	taskListData = tasks;
 	taskListData.forEach(task => {
     var newEntry = document.createElement("button");
-    newEntry.innerHTML = task[1] + " " + task[2] + " " + task[3] + " " + task[4] + " x";
+    newEntry.innerHTML = task[0] + " " + task[1] + " " + task[2] + " " + task[3] + " " + task[4] + " x";
     //task[0] is id, [1] is title, [2] is duration, [3] is start before, [4] is end before
   	newEntry.setAttribute("class", "taskItem");
   	newEntry.setAttribute("onclick", "remove(this)");
@@ -26,12 +25,16 @@ function populateTasks(tasks){
 
 function remove(el) {
   var element = el;
+  var taskID = el.innerHTML;
+  var taskID = taskID.substring(0, 1);
   element.remove();
-  const index = taskList.indexOf(element);
-  if (index > -1) {
-  	taskList.splice(index, 1);
+  
+  for(var i = 0; i <= taskList.length - 1; i++){
+      if(taskList[i][0] == taskID){
+          taskList.splice(i--,1);
+      }
   }
-  console.log(taskList);
+  
 }
 
 function addEntry() {
@@ -62,5 +65,21 @@ function addEntry() {
 }*/
 
 function updateSchedule() {
-	document.getElementById("sDisplay").innerHTML = taskList;
+	document.getElementById("schedule").innerHTML = ""
+	/*document.getElementById("schedule").innerHTML = "";
+	taskListData.forEach(task => {
+  	var newEntry = document.createElement("div");
+    newEntry.innerHTML = task[1] + " " + task[2] + " " + task[3] + " " + task[4];
+    newEntry.setAttribute("class", "slot");
+  	document.getElementById("schedule").innerHTML += newEntry;
+	});*/
+  for (let i = 0; i < taskList.length; i++) {
+    // get the size of the inner array
+    document.getElementById("schedule").innerHTML += "<div class=\"slot\">" + taskList[i][1] + "</div>"
+    var innerArrayLength = taskList[i].length;
+    // loop the inner array
+    for (let j = 0; j < innerArrayLength; j++) {
+      //console.log('[' + i + ',' + j + '] = ' + taskList[i][j]);
+    }
+	}
 }
