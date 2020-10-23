@@ -6,12 +6,14 @@ let taskList = [
     ['4', 'File taxes','0.75', '', 'midnight'],
     ['5', 'Sleep', '8', '10pm', '']
   ];
+  taskTotal = taskList.length;
 populateTasks(taskList);
 window.setInterval(function(){
 	updateSchedule();
 }, 5000);
 
 function populateTasks(tasks){
+document.getElementById("sTasks").innerHTML = "";
 	taskListData = tasks;
 	taskListData.forEach(task => {
     var newEntry = document.createElement("button");
@@ -21,6 +23,7 @@ function populateTasks(tasks){
   	newEntry.setAttribute("onclick", "remove(this)");
   	document.getElementById("sTasks").appendChild(newEntry)
 });
+updateSchedule();
 }
 
 function remove(el) {
@@ -28,30 +31,28 @@ function remove(el) {
   var taskID = el.innerHTML;
   var taskID = taskID.substring(0, 1);
   element.remove();
-  
   for(var i = 0; i <= taskList.length - 1; i++){
       if(taskList[i][0] == taskID){
           taskList.splice(i--,1);
       }
   }
-  
+  updateSchedule();
 }
 
 function addEntry() {
   var newEntry = document.createElement("button");
-  var taskID = (taskList.length + 1);
+  taskTotal++;
+  var taskID = taskTotal;
   var taskTitle = document.getElementById('title').value;
   var taskDuration = document.getElementById('duration').value;
   var taskStartBefore = document.getElementById('startBefore').value;
   var taskEndBefore = document.getElementById('endBefore').value;
+  if (!taskTitle) taskTitle = "Task" + taskID;
   if (!taskDuration) taskDuration = 0.5;
   if (!taskStartBefore) taskStartBefore = "N/A";
   if (!taskEndBefore) taskEndBefore = "N/A";
-  taskList.push([taskID, taskTitle, taskDuration, taskStartBefore, taskEndBefore]);
-  newEntry.innerHTML = taskTitle + " " + taskDuration + " " + taskStartBefore + " " + taskEndBefore + " x";
-  newEntry.setAttribute("class", "taskItem");
-  newEntry.setAttribute("onclick", "remove(this)");
-  document.getElementById("sTasks").appendChild(newEntry)
+  taskList.push([""+taskID, taskTitle, ""+taskDuration, taskStartBefore, taskEndBefore]);
+  populateTasks(taskList);
 }
 
 /*function createSchedule(btn, tasks) {
