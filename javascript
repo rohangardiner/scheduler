@@ -40,7 +40,6 @@ function remove(el) {
 }
 
 function addEntry() {
-console.log("D "+taskList);
   var newEntry = document.createElement("button");
   taskTotal++;
   var taskID = taskTotal;
