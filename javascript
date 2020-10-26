@@ -28,8 +28,8 @@ updateSchedule();
 
 function remove(el) {
   var element = el;
-  var taskID = el.innerHTML;
-  var taskID = taskID.substring(0, 1);
+  var taskID = el.innerHTML.substring(0, el.innerHTML.indexOf(' ')); 
+  //var taskID = taskID.substring(0, 1);
   element.remove();
   for(var i = 0; i <= taskList.length - 1; i++){
       if(taskList[i][0] == taskID){
@@ -40,6 +40,7 @@ function remove(el) {
 }
 
 function addEntry() {
+console.log("D "+taskList);
   var newEntry = document.createElement("button");
   taskTotal++;
   var taskID = taskTotal;
